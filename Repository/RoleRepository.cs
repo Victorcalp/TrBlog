@@ -15,10 +15,11 @@ namespace Blog.Repository
         => _connection.Insert(role);
         public void Update(Role role)
         => _connection.Update(role);
-        public void Delete(int id)
-        {
+        public void Delete(Role role)
+        => _connection.Delete(role);
+        public void Delete(int id){
             var role = _connection.Get<Role>(id);
-            _connection.Delete(role);
+            _connection.Delete<Role>(role);
         }
     }
 }
