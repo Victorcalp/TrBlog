@@ -1,6 +1,5 @@
-﻿using Blog.Models;
-using Blog.Repository;
-using Dapper.Contrib.Extensions;
+﻿using System.ComponentModel.Design;
+using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
 class Program
@@ -9,73 +8,38 @@ class Program
 
     static void Main(string[] args)
     {
-        if (args is null)
-        {
-            throw new ArgumentNullException(nameof(args));
+        var connection = new SqlConnection(Connection_String);
+        connection.Open();
+
+        Load();
+        Console.ReadKey();
+
+        connection.Close();
+    }
+
+    public static void Load(){
+        Console.Clear();
+        Console.WriteLine("Meu Blog");
+        Console.WriteLine("------------");
+        Console.WriteLine("O que deseja fazer? ");
+        Console.WriteLine();
+        Console.WriteLine("1 - Gestão de Usuário");
+        Console.WriteLine("2 - Gestão de Perfil");
+        Console.WriteLine("3 - Gestão de Categoria");
+        Console.WriteLine("4 - Gestão de Tag");
+        Console.WriteLine("5 - Vincular Perfil / Usuário");
+        Console.WriteLine("6 - Vincular Post / Tag");
+        Console.WriteLine("7 - Relatórios");
+        Console.WriteLine();
+
+        var option = short.Parse(Console.ReadLine()!);
+
+        switch(option){
+            case 4:
+            MenuTagScreens.Load();
+            break;
+            default: Load(); break;
+
         }
-
-        DeleteUser();
-        //UpdateUser();
-        ReadUsers();
-        //CreateUser();   
-    }
-    public static void ReadUsers()
-    {
-        var repository = new UserRepository();
-        var users = repository.GetAll();
-
-        foreach (var user in users)
-        {
-            Console.WriteLine(user.Name);
-        }
-    }
-    public static void ReadUser()
-    {
-        using var connection = new SqlConnection(Connection_String);
-        var user = connection.Get<User>(1); //lista todos os users da base
-
-        Console.WriteLine(user.Name);
-    }
-    public static void CreateUser()
-    {
-        var user = new User()
-        {
-            Name = "Equipe balta.io",
-            Bio = "Equipe balta.io",
-            Image = "https://...",
-            Email = "hello@balta.io",
-            PasswordHash = "HASH",
-            Slug = "equipe.balta",
-        };
-
-        using var connection = new SqlConnection(Connection_String);
-        connection.Insert<User>(user);
-        Console.WriteLine("Cadastro realizado com sucesso");
-    }
-    public static void UpdateUser()
-    {
-        var user = new User()
-        {
-            Id = 2,
-            Name = "Equipe do balta.io",
-            Bio = "Equipe balta.io",
-            Image = "https://...",
-            Email = "hello@balta.io",
-            PasswordHash = "HASH",
-            Slug = "equipe.balta",
-        };
-
-        using var connection = new SqlConnection(Connection_String);
-        connection.Update<User>(user);
-        Console.WriteLine("Update realizado com sucesso");
-    }
-
-    public static void DeleteUser()
-    {
-
-        using var connection = new SqlConnection(Connection_String);
-        var user = connection.Get<User>(2);
-        connection.Delete<User>(user);
-        Console.WriteLine("Exclusão realizada");
     }
 }
