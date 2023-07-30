@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Blog.Screens.TagScreens
 {
@@ -19,26 +15,26 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("3 - Atualizar Tags");
             Console.WriteLine("4 - Excluir Tags");
             Console.WriteLine();
-            // var option = short.Parse(Console.ReadLine()!); // ! força a entrada de uma string
+            var option = short.Parse(Console.ReadLine()!); // ! força a entrada de uma string
 
-            // switch (option)
-            // {
-            //     case 1:
-            //         listtagsscreen.load();
-            //         break;
-            //     case 2:
-            //         createtagsscreen.load();
-            //         break;
-            //     case 3:
-            //         updatetagscreen.load();
-            //         break;
-            //     case 4:
-            //         deletetagscreen.load();
-            //         break;
-            //     default:
-            //         load();
-            //         break;
-            // }
+            switch (option)
+            {
+                case 1:
+                    ListTagsScreen.Load();
+                    break;
+                case 2:
+                    CreateTagsScreen.Load();
+                    break;
+                case 3:
+                    UpdateTagScreen.Load();
+                    break;
+                case 4:
+                    DeleteTagScreen.Load();
+                    break;
+                default:
+                    Load();
+                    break;
+            }
 
         }
     }

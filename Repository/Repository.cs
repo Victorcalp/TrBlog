@@ -13,7 +13,7 @@ namespace Blog.Repository
         }
         public IEnumerable<T> GetAll()
         => _connection.GetAll<T>();
-        public T Get(int id)
+        public T GetId(int id)
         => _connection.Get<T>(id);
         public void Create(T value)
         => _connection.Insert(value);

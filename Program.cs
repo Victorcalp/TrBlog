@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using Blog.Data;
 using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
@@ -8,13 +9,14 @@ class Program
 
     static void Main(string[] args)
     {
-        var connection = new SqlConnection(Connection_String);
-        connection.Open();
+        Console.Clear();
+        DataBase.Connection = new SqlConnection(Connection_String);
+        DataBase.Connection.Open();
 
         Load();
         Console.ReadKey();
 
-        connection.Close();
+        DataBase.Connection.Close();
     }
 
     public static void Load(){
