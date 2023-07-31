@@ -1,4 +1,3 @@
-
 using Blog.Data;
 using Blog.Models;
 using Blog.Repository;
@@ -30,7 +29,7 @@ namespace Blog.Screens.TagScreens
                 Console.WriteLine("Não foi possivel cadastrar a TAG");
                 Console.WriteLine(ex.Message);
             }
-            
+
             Console.ReadKey();
             MenuTagScreens.Load();
         }

@@ -15,7 +15,7 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("3 - Atualizar Tags");
             Console.WriteLine("4 - Excluir Tags");
             Console.WriteLine("5 - Voltar para o Inicio");
-            Console.WriteLine();
+            
             var option = short.Parse(Console.ReadLine()!); // ! força a entrada de uma string
 
             switch (option)

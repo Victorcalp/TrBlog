@@ -32,7 +32,6 @@ class Program
         Console.WriteLine("5 - Vincular Perfil / Usuário");
         Console.WriteLine("6 - Vincular Post / Tag");
         Console.WriteLine("7 - Relatórios");
-        Console.WriteLine();
 
         var option = short.Parse(Console.ReadLine()!);
 

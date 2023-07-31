@@ -16,12 +16,7 @@ namespace Blog.Screens.TagScreens
             try
             {
                 var repository = new Repository<Tag>(DataBase.Connection);
-                var tags = repository.GetAll();
-
-                var result = tags.FirstOrDefault(x => x.Id == id);
-
-                // Console.WriteLine("Name: " + result.Name);
-                // Console.WriteLine("Slug: " + result.Slug);
+                var result = repository.GetAll().FirstOrDefault(x => x.Id == id);
 
                 Console.Write("Nome: '" + result.Name + "' - ");
                 string name = Console.ReadLine();
@@ -42,15 +37,13 @@ namespace Blog.Screens.TagScreens
                 Console.WriteLine("Tag Atualizada");
                 Console.WriteLine("Name: " + name);
                 Console.WriteLine("Slug: " + slug);
-                Console.ReadKey();
-                MenuTagScreens.Load();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Não foi possivel atualizar TAG - " + ex.Message);
-                Console.ReadKey();
-                MenuTagScreens.Load();
             }
+            Console.ReadKey();
+            MenuTagScreens.Load();
         }
     }
 }
