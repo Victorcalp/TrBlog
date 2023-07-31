@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using Blog.Data;
+﻿using Blog.Data;
 using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
@@ -19,7 +18,8 @@ class Program
         DataBase.Connection.Close();
     }
 
-    public static void Load(){
+    public static void Load()
+    {
         Console.Clear();
         Console.WriteLine("Meu Blog");
         Console.WriteLine("------------");
@@ -36,10 +36,11 @@ class Program
 
         var option = short.Parse(Console.ReadLine()!);
 
-        switch(option){
+        switch (option)
+        {
             case 4:
-            MenuTagScreens.Load();
-            break;
+                MenuTagScreens.Load();
+                break;
             default: Load(); break;
 
         }

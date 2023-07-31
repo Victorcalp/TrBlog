@@ -11,7 +11,7 @@ namespace Blog.Screens.TagScreens
             Console.Clear();
             Console.WriteLine("Lista de Tags");
             Console.WriteLine("--------------");
-            
+
             var repository = new Repository<Tag>(DataBase.Connection);
             var tags = repository.GetAll();
 
@@ -19,6 +19,9 @@ namespace Blog.Screens.TagScreens
             {
                 Console.WriteLine($"{item.Id} - {item.Name} - {item.Slug}");
             }
+
+            Console.ReadKey();
+            MenuTagScreens.Load();
         }
     }
 }

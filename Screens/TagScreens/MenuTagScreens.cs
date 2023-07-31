@@ -14,6 +14,7 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("2 - Cadastrar Tags");
             Console.WriteLine("3 - Atualizar Tags");
             Console.WriteLine("4 - Excluir Tags");
+            Console.WriteLine("5 - Voltar para o Inicio");
             Console.WriteLine();
             var option = short.Parse(Console.ReadLine()!); // ! força a entrada de uma string
 
@@ -23,13 +24,16 @@ namespace Blog.Screens.TagScreens
                     ListTagsScreen.Load();
                     break;
                 case 2:
-                    CreateTagsScreen.Load();
+                    CreateTagsScreen.Create();
                     break;
                 case 3:
-                    UpdateTagScreen.Load();
+                    UpdateTagScreen.Update();
                     break;
                 case 4:
                     DeleteTagScreen.Load();
+                    break;
+                case 5:
+                    Program.Load();
                     break;
                 default:
                     Load();
