@@ -30,7 +30,7 @@ namespace Blog.Screens.TagScreens
                     UpdateTagScreen.Update();
                     break;
                 case 4:
-                    DeleteTagScreen.Load();
+                    DeleteTagScreen.Delete();
                     break;
                 case 5:
                     Program.Load();

@@ -6,7 +6,7 @@ namespace Blog.Screens.TagScreens
 {
     public class DeleteTagScreen
     {
-        public static void Load()
+        public static void Delete()
         {
             Console.Clear();
             Console.WriteLine("Delete TAG");

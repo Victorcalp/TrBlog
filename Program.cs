@@ -1,4 +1,5 @@
 ﻿using Blog.Data;
+using Blog.Screens.CategoryScreen;
 using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
@@ -37,6 +38,9 @@ class Program
 
         switch (option)
         {
+            case 3:
+                MenuCategoryScreen.Load();
+                break;
             case 4:
                 MenuTagScreens.Load();
                 break;
