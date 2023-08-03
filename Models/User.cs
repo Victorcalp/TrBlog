@@ -5,7 +5,6 @@ namespace Blog.Models
     [Table("[User]")]
     public class User
     {
-
         //construtor
         public User() => Roles = new List<Role>();
         
@@ -19,6 +18,7 @@ namespace Blog.Models
 
         //não vai inscriver Role pelo usuario
         [Write(false)]
-        public List<Role> Roles { get; set; }
+        public IList<Role> Roles { get; set; }
+        public IList<Post> Posts { get; set; }
     }
 }
