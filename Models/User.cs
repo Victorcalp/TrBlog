@@ -15,9 +15,7 @@ namespace Blog.Models
         public string Bio { get; set; }
         public string Image { get; set; }
         public string Slug { get; set; }
-
-        //não vai inscriver Role pelo usuario
-        [Write(false)]
+        
         public IList<Role> Roles { get; set; }
         public IList<Post> Posts { get; set; }
     }

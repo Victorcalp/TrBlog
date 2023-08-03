@@ -1,3 +1,4 @@
+using Blog.Data.Mappings;
 using Blog.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,14 @@ namespace Blog.Data
         {
             options.UseSqlServer("Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=True;");
             // options.LogTo();
+        }
+
+        //Criação dos modelos
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new PostMap());
         }
     }
 }
